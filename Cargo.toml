@@ -6,3 +6,11 @@ edition = "2024"
 [dependencies]
 clap = { version = "4.6.1", features = ["derive", "string"] }
 ochre-interp = { path = "./ochre-interp" }
+ochre-macros = { path = "./ochre-macros" }
+
+[workspace]
+resolver = "3"
+members = [
+  "ochre-interp",
+  "ochre-macros"
+]

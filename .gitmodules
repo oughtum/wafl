@@ -1,3 +1,6 @@
 [submodule "ochre-interp"]
 	path = ochre-interp
 	url = git@github.com:oughtum/ochre-interp
+[submodule "ochre-macros"]
+	path = ochre-macros
+	url = git@github.com:oughtum/ochre-macros

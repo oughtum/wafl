@@ -1,7 +1,7 @@
 set quiet
 
-test:
-    cargo test -- --nocapture
-
 run FILE:
-    cargo run -- eval -I {{FILE}}
+    cargo run -- run -m {{FILE}}
+
+spec:
+    just run ochre-interp/spec.ocr
