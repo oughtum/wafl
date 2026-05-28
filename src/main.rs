@@ -1,7 +1,7 @@
 use std::{fs, path::PathBuf};
 
 use clap::{Parser, Subcommand};
-use ochre_interp::{diagnostics::Result, interpreter::Interpreter};
+use ochre_interp::interpreter::Interpreter;
 
 #[derive(clap::Parser)]
 #[command(about, disable_help_flag = true)]
@@ -25,7 +25,7 @@ pub enum Command {
     Repl,
 }
 
-fn main() -> Result<()> {
+fn main() {
     let args = Cli::parse();
 
     match args.command {
@@ -35,10 +35,10 @@ fn main() -> Result<()> {
             } else if let Some(module) = module {
                 (fs::read_to_string(&module).unwrap(), Some(module), None)
             } else {
-                panic!("")
+                unreachable!("")
             };
 
-            Interpreter::default().run(src, path, name)
+            Interpreter.run(src, path, name)
         }
         Command::Repl => todo!(),
     }
