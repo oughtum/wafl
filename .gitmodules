@@ -1,6 +1,6 @@
-[submodule "ochre-interp"]
-	path = ochre-interp
-	url = git@github.com:oughtum/ochre-interp
-[submodule "ochre-macros"]
-	path = ochre-macros
-	url = git@github.com:oughtum/ochre-macros
+[submodule "wafl-interp"]
+	path = wafl-interp
+	url = git@github.com:oughtum/wafl-interp
+[submodule "wafl-macros"]
+	path = wafl-macros
+	url = git@github.com:oughtum/wafl-macros
