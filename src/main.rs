@@ -11,9 +11,9 @@ pub struct Cli {
 
 #[derive(Subcommand)]
 pub enum Command {
-    /// Evaluate and run WAFL source code
+    /// Evaluate and run wafl source code
     Run {
-        /// An arbitrary WAFL expression
+        /// An arbitrary wafl expression
         #[arg(short, long, exclusive = true)]
         expr: Option<String>,
         /// The path to an input file
