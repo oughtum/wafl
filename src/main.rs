@@ -1,6 +1,5 @@
 use clap::{Parser, Subcommand};
-use std::{fs, path::PathBuf};
-use wafl_interp::interpreter::Interpreter;
+use std::path::PathBuf;
 
 #[derive(clap::Parser)]
 #[command(about, disable_help_flag = true)]
@@ -28,17 +27,11 @@ fn main() {
     let args = Cli::parse();
 
     match args.command {
-        Command::Run { expr, file } => {
-            let (src, path, name, expr) = if let Some(expr) = expr {
-                (expr, None, Some("expr"), true)
-            } else if let Some(path) = file {
-                (fs::read_to_string(&path).unwrap(), Some(path), None, false)
-            } else {
-                unreachable!("")
-            };
-
-            Interpreter.run(src, name, path, expr)
-        }
-        Command::Repl => Interpreter.repl(),
+        Command::Run { expr, file } => match (expr, file) {
+            (Some(expr), None) => wafl_interp::eval(&expr),
+            (None, Some(file)) => wafl_interp::eval_file(file),
+            _ => unreachable!(),
+        },
+        Command::Repl => wafl_interp::repl(),
     }
 }
